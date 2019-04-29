@@ -24,13 +24,14 @@
 #                             Default: undef.
 #
 class keepalived::global_defs(
-  $notification_email      = undef,
-  $notification_email_from = undef,
-  $smtp_server             = undef,
-  $smtp_connect_timeout    = undef,
-  $router_id               = undef,
-  $script_user             = undef,
-  $enable_script_security  = undef,
+  $notification_email            = undef,
+  $notification_email_from       = undef,
+  $smtp_server                   = undef,
+  $smtp_connect_timeout          = undef,
+  $router_id                     = undef,
+  $script_user                   = undef,
+  $enable_script_security        = undef,
+  $enable_vrrp_check_unicast_src = undef,
 ) inherits keepalived::params {
   concat::fragment { 'keepalived.conf_globaldefs':
     target  => "${::keepalived::params::config_dir}/keepalived.conf",
